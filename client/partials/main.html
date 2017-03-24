@@ -1,0 +1,35 @@
+<nav>
+  <div class="nav-wrapper grey darken-1">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#!/create" style="font-size: large">Create a New Poll</a></li>
+      <li><a href="#!/" style="font-size: large">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <h5>Current Polls:</h5>
+  <div class="row">
+    <div class="input-field col s4 right">
+      <input  name="search" type="text" id="search" >
+      <label for="search">Search</label>
+    </div>
+  </div>
+  <table class="striped centered">
+    <thead>
+    <tr>
+      <th data-field="name">Name</th>
+      <th data-field="survey">Survey Question</th>
+      <th data-field="date">Date Posted</th>
+      <th data-field="action">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="survey in surveys">
+      <td ng-bind="survey.creator[0]"></td>
+      <td><a href="#!/poll/{{survey._id}}">{{survey.question}}</a></td>
+      <td ng-bind="survey.created_at | date: dd/MM/yyyy"></td>
+      <td><button class="btn red" ng-click="delete(survey._id)">Delete</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

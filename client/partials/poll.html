@@ -1,0 +1,32 @@
+<nav>
+  <div class="nav-wrapper grey darken-1">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#!/dashboard" style="font-size: large">Go to Polls</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="row">
+  <h4>{{poll}}</h4>
+  <p>Click the 'Vote' button to choose one</p>
+</div>
+<div class="row">
+  <div class="card col s5">
+    <table class="striped centered">
+      <thead>
+      <tr>
+        <th data-field="name">Option</th>
+        <th data-field="survey">Current Count of Votes</th>
+        <th data-field="action">Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td ng-bind="poll.option1"></td>
+        <td ng-bind=""></td>
+        <td ng-bind=""></td>
+        <td><button class="btn blue">Vote</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

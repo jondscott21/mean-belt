@@ -1,0 +1,44 @@
+<nav>
+  <div class="nav-wrapper grey darken-1">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="#!/dashboard" style="font-size: large">Cancel</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+  <form ng-submit="create()">
+    <div class="row">
+      <div class="input-field">
+        <input type="text" name="question" ng-model="survey.question" id="question">
+        <label for="question">Question:</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input class="col s4" type="text" ng-model="survey.option1" name="option1" id="option1">
+        <label for="option1">Option 1:</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input class="col s4" type="text" ng-model="survey.option2" name="option2" id="option2">
+        <label for="option2">Option 2:</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input class="col s4" type="text" ng-model="survey.option3" name="option3" id="option3">
+        <label for="option3">Option 3:</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <input class="col s4" type="text" ng-model="survey.option4" name="option4" id="option4">
+        <label for="option4">Option 4:</label>
+      </div>
+      <div class="input-field">
+        <input type="submit" value="Create Poll" class="btn blue right">
+      </div>
+    </div>
+  </form>
+</div>
