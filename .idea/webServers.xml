@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="59a8f029-e46b-40ef-95cb-7267e84ba524" name="aws" url="http://54.190.9.34">
+        <fileTransfer host="54.190.9.34" port="22" privateKey="C:\Users\jonat_000\Desktop\pemkey\New Era\djangokey.pem" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
