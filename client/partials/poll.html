@@ -6,7 +6,7 @@
   </div>
 </nav>
 <div class="row">
-  <h4>{{poll}}</h4>
+  <h4>{{poll.question}}</h4>
   <p>Click the 'Vote' button to choose one</p>
 </div>
 <div class="row">
@@ -22,9 +22,23 @@
       <tbody>
       <tr>
         <td ng-bind="poll.option1"></td>
-        <td ng-bind=""></td>
-        <td ng-bind=""></td>
-        <td><button class="btn blue">Vote</button></td>
+        <td ng-bind="poll.count1"></td>
+        <td><button ng-click="vote(poll, 1)" class="btn blue">Vote</button></td>
+      </tr>
+      <tr>
+        <td ng-bind="poll.option2"></td>
+        <td ng-bind="poll.count2"></td>
+        <td><button ng-click="vote(poll, 2)" class="btn blue">Vote</button></td>
+      </tr>
+      <tr>
+        <td ng-bind="poll.option3"></td>
+        <td ng-bind="poll.count3"></td>
+        <td><button ng-click="vote(poll, 3)" class="btn blue">Vote</button></td>
+      </tr>
+      <tr>
+        <td ng-bind="poll.option4"></td>
+        <td ng-bind="poll.count4"></td>
+        <td><button ng-click="vote(poll, 4)" class="btn blue">Vote</button></td>
       </tr>
       </tbody>
     </table>

@@ -16,4 +16,5 @@ module.exports = function(app){
     app.delete('/survey/:id', polls.delete);
 
     app.get('/survey/:id', polls.show);
+    app.post('/survey/vote', polls.vote);
 };

@@ -13,24 +13,36 @@
         <label for="question">Question:</label>
       </div>
     </div>
+    <ul>
+      <li class="red-text" ng-if="pollErrors" ng-bind="pollErrors.question.message"></li>
+    </ul>
     <div class="row">
       <div class="input-field">
         <input class="col s4" type="text" ng-model="survey.option1" name="option1" id="option1">
         <label for="option1">Option 1:</label>
       </div>
     </div>
+    <ul>
+      <li class="red-text" ng-if="pollErrors" ng-bind="pollErrors.option1.message"></li>
+    </ul>
     <div class="row">
       <div class="input-field">
         <input class="col s4" type="text" ng-model="survey.option2" name="option2" id="option2">
         <label for="option2">Option 2:</label>
       </div>
     </div>
+    <ul>
+      <li class="red-text" ng-if="pollErrors" ng-bind="pollErrors.option2.message"></li>
+    </ul>
     <div class="row">
       <div class="input-field">
         <input class="col s4" type="text" ng-model="survey.option3" name="option3" id="option3">
         <label for="option3">Option 3:</label>
       </div>
     </div>
+    <ul>
+      <li class="red-text" ng-if="pollErrors" ng-bind="pollErrors.option3.message"></li>
+    </ul>
     <div class="row">
       <div class="input-field">
         <input class="col s4" type="text" ng-model="survey.option4" name="option4" id="option4">
@@ -40,5 +52,8 @@
         <input type="submit" value="Create Poll" class="btn blue right">
       </div>
     </div>
+    <ul>
+      <li class="red-text" ng-if="pollErrors" ng-bind="pollErrors.option4.message"></li>
+    </ul>
   </form>
 </div>

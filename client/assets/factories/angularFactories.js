@@ -1,9 +1,12 @@
 //=====USER FACTORY=====//
 app.factory('userFactory', ['$http', '$routeParams', '$location', function ($http, $routeParams, $location) {
+    let currentUser;
     let factory = {};
     factory.users = [];
-    factory.user = {};
-    factory.currentUser = {};
+    factory.loggedIn = function (callback) {
+        callback(currentUser);
+    };
+
     factory.index = function (callback) {
         $http.get('/survey/1').then( function(data) {
             factory.users = data.data;
@@ -11,10 +14,9 @@ app.factory('userFactory', ['$http', '$routeParams', '$location', function ($htt
         });
     };
     factory.create = function (newUser, callback) {
-        factory.currentUser = newUser;
         $http.post('/survey/1', newUser).then(function (data) {
-            factory.user = data.data;
-            return callback(factory.user);
+            currentUser = data.data;
+            return callback(data.data);
         })
     };
     factory.delete = function (delete_idx) {
@@ -27,15 +29,14 @@ app.factory('surveyFactory', ['$http', '$routeParams', '$location', function ($h
     let factory = {};
     factory.index = function (callback) {
         $http.get('/survey/2').then( function(data) {
-            factory.polls = data.data;
-            return callback(factory.polls)
+            return callback(data.data)
         });
     };
-    factory.create = function (newPoll, callback) {
-        console.log(newPoll);
-        $http.post('/survey/2', newPoll).then(function (data) {
-            factory.poll = data.data;
-            return callback(factory.poll);
+    factory.create = function (newPoll, currentUser, callback) {
+        let userPoll = {newPoll, currentUser};
+        console.log(userPoll);
+        $http.post('/survey/2', userPoll).then(function (data) {
+            return callback(data.data);
         })
     };
     factory.delete = function (delete_idx) {
@@ -43,9 +44,15 @@ app.factory('surveyFactory', ['$http', '$routeParams', '$location', function ($h
     };
     factory.show = function (idx, callback) {
         $http.get('/survey/' + idx).then(function (data) {
-            factory.poll = data.data;
-            return callback(factory.poll);
+            return callback(data.data);
         });
+    };
+    factory.vote = function (option, num, callback) {
+        console.log(num);
+        let send = {option, num};
+        $http.post('/survey/vote', send).then(function (data) {
+            return callback(data.data);
+        })
     };
     return factory;
 }]);

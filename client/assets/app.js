@@ -1,4 +1,9 @@
 let app = angular.module('app', ['ngRoute', 'ngCookies']);
+app.run(['$window', function ($window) {
+    window.location.reload = function () {
+        window.location.href = '/';
+    }
+}]);
 app.config(function ($routeProvider) {
 // Routes to load your new and edit pages with new and edit controllers attached to them!
     $routeProvider
@@ -14,7 +19,7 @@ app.config(function ($routeProvider) {
         })
         .when('/poll/:id', {
             templateUrl: 'partials/poll.html',
-            controller: 'SurveyController',
+            controller: 'PollController',
             controllerAs: 'SC',
         })
         .when('/create', {
